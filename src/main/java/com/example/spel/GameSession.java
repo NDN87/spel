@@ -3,21 +3,19 @@ package com.example.spel;
 import java.util.UUID;
 
 public class GameSession {
-    private final GameId id;
     private final Player[] players = new Player[2];
+    private final GameState state = new GameState();
 
-    public GameSession(GameId id) {
-        this.id = id;
+    public GameSession(Player player) {
+        players[0] = player;
     }
 
-    public boolean AddPlayer(Player player)
+    public void AddPlayer(Player player)
     {
-        for(int i = 0; i < 2; i++){
-            if(players[i] == null){
-                players[i] = player;
-                return true;
-            }
-        }
-        return false;
+        players[1] = player;
+    }
+
+    public GameState GetState(){
+        return state;
     }
 }

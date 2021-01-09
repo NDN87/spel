@@ -9,6 +9,9 @@ public class GameId {
     public GameId() {
         this.id = UUID.randomUUID();
     }
+    public GameId(UUID id) {
+        this.id = id;
+    }
 
     public UUID getId() {
         return id;
