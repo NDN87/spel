@@ -9,5 +9,4 @@ public class SpelApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpelApplication.class, args);
     }
-
 }
