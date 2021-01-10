@@ -1,5 +1,7 @@
 package com.example.spel;
 
+import org.apache.catalina.User;
+
 import java.util.UUID;
 
 public class GameSession {
@@ -8,9 +10,13 @@ public class GameSession {
         moves[0] = new UserMove(player);
     }
 
-    public void AddPlayer(String player)
+    public boolean isAvailableToJoin(){
+        return moves[1] == null;
+    }
+
+    public void AddPlayer(Player player)
     {
-        moves[1].setName(player);
+        moves[1] = new UserMove(player);
     }
 
     public UserMove[] GetMoves(){
@@ -18,6 +24,9 @@ public class GameSession {
     }
 
     public Status GetStatus(){
-        return new Status(String.format("Waiting for opponent for %s...", moves[0].getName()));
+        if(moves[1] == null){
+            return new Status(String.format("Waiting for opponent for %s...", moves[0].getName()));
+        }
+        return new Status("Waiting for both opponents to make their move.");
     }
 }
