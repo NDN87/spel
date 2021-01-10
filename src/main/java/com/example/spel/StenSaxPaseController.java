@@ -8,15 +8,12 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class StenSaxPaseController {
 
-    private static final String template = "Hello, %s!";
-    private final AtomicLong counter = new AtomicLong();
     private final Map<UUID, GameSession> gameSessions = new HashMap<>() {
     };
 
     @GetMapping("games/{id}")
-    public @ResponseBody GameState getGameState(@PathVariable UUID id){
-        //System.err.println(id);
-        return gameSessions.get(id).GetState();
+    public Status getGameStatus(@PathVariable UUID id){
+        return gameSessions.get(id).GetStatus();
     }
 
     @PostMapping("/games")

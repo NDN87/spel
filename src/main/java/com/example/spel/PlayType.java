@@ -37,4 +37,5 @@ public enum PlayType {
         }
     }
     public abstract boolean beats(PlayType other);
+
 }

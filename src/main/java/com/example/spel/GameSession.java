@@ -3,19 +3,21 @@ package com.example.spel;
 import java.util.UUID;
 
 public class GameSession {
-    private final Player[] players = new Player[2];
-    private final GameState state = new GameState();
-
+    private final UserMove[] moves = new UserMove[2];
     public GameSession(Player player) {
-        players[0] = player;
+        moves[0] = new UserMove(player);
     }
 
-    public void AddPlayer(Player player)
+    public void AddPlayer(String player)
     {
-        players[1] = player;
+        moves[1].setName(player);
     }
 
-    public GameState GetState(){
-        return state;
+    public UserMove[] GetMoves(){
+        return moves;
+    }
+
+    public Status GetStatus(){
+        return new Status(String.format("Waiting for opponent for %s...", moves[0].getName()));
     }
 }
