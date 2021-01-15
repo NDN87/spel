@@ -8,6 +8,8 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/v1/")
 public class StenSaxPaseController {
 
     private final Map<UUID, GameSession> gameSessions = new HashMap<>() {
