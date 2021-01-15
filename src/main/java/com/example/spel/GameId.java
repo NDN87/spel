@@ -1,5 +1,6 @@
 package com.example.spel;
 
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 
 public class GameId {

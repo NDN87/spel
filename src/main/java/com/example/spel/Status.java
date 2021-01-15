@@ -2,18 +2,27 @@ package com.example.spel;
 
 public class Status {
 
-    private String value;
+    private PlayerStatus playerStatus[] = new PlayerStatus[2];
+    private PlayType moves[];
+    private String name;
 
-    public Status(String status) {
-        this.value = status;
+    public Status(String name) {
+        this.name = name;
     }
 
-    public String getStatus() {
-        return this.value;
+    public PlayerStatus[] getStatus() {
+        return this.playerStatus;
     }
 
-    public void setStatus(String value) {
-        this.value = value;
+    public PlayType[] getMoves(String value) {
+        if(playerStatus[0] == PlayerStatus.READY && playerStatus[1] == PlayerStatus.READY){
+            return moves;
+        }
+        return null;
+    }
+
+    public String getName() {
+        return name;
     }
 }
 

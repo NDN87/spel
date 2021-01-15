@@ -1,29 +1,31 @@
 package com.example.spel;
 
+import java.util.Locale;
+
 public enum PlayType {
 
-    ROCK{
+    ROCK("rock"){
         @Override
         public boolean beats(PlayType other){
             return other ==  SCISSOR;
 
         }
     },
-    PAPER{
+    PAPER("paper"){
         @Override
         public boolean beats(PlayType other){
             return other ==  ROCK;
 
         }
     },
-    SCISSOR{
+    SCISSOR("scissor"){
         @Override
         public boolean beats(PlayType other){
             return other ==  PAPER;
 
         }
     };
-
+    private final String string;
     public static PlayType parseType(String value){
         switch (value.toLowerCase()){
             case "rock":
@@ -37,5 +39,9 @@ public enum PlayType {
         }
     }
     public abstract boolean beats(PlayType other);
+    PlayType(String play) {
+        this.string = play.toLowerCase();
+    }
+
 
 }

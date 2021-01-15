@@ -2,31 +2,51 @@ package com.example.spel;
 
 import org.apache.catalina.User;
 
-import java.util.UUID;
+import java.util.Arrays;
 
 public class GameSession {
-    private final UserMove[] moves = new UserMove[2];
+    private final Player[] players = new Player[2];
     public GameSession(Player player) {
-        moves[0] = new UserMove(player);
+        players[0] = player;
     }
 
     public boolean isAvailableToJoin(){
-        return moves[1] == null;
+        return players[1] == null;
     }
 
     public void AddPlayer(Player player)
     {
-        moves[1] = new UserMove(player);
+        players[1] = player;
     }
 
-    public UserMove[] GetMoves(){
-        return moves;
-    }
-
-    public Status GetStatus(){
-        if(moves[1] == null){
-            return new Status(String.format("Waiting for opponent for %s...", moves[0].getName()));
+    public Player[] GetStatus(){
+        Player[] playersPublicInfo = Arrays.stream(players)
+                .map(player -> player == null ? null : new Player(player))
+                .toArray(Player[]::new);
+        if(isAvailableToJoin())
+            playersPublicInfo[0].DeletePlay();
+        else if(waitingForPlayerMove()){
+            playersPublicInfo[0].DeletePlay();
+            playersPublicInfo[1].DeletePlay();
         }
-        return new Status("Waiting for both opponents to make their move.");
+        return playersPublicInfo;
+    }
+
+    private boolean waitingForPlayerMove(){
+        return players[0].getPlayerStatus() != PlayerStatus.READY || players[1].getPlayerStatus() != PlayerStatus.READY;
+    }
+
+    public void MakeMove(Player mover) {
+        Player p;
+        if(players[0].getName().equals(mover.getName())) p = players[0];
+        else if(players[1].getName().equals(mover.getName())) p = players[1];
+        else return;
+        p.setMove(mover.getMove());
+    }
+
+    public Result GetResult() {
+        if(waitingForPlayerMove())
+            return null;
+        return new Result(players);
     }
 }

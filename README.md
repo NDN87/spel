@@ -7,6 +7,7 @@
 ## Curl examples
 - create game :  `curl -d '{"name": "daniel"}' -H "Content-Type: application/json" -X POST http://localhost:8080/games`
 - join game: `curl -d '{"name":"josefin"}' -H "Content-Type: application/json" -X POST http://localhost:8080/games/$id/join`
+- info about game: `curl -H "Content-Type: application/json"  http://localhost:8080/games/$id`
 
 ## General info
 Add more general information about project. What the purpose of the project is? Motivation?
