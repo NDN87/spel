@@ -7,7 +7,7 @@ public enum PlayType {
     ROCK("rock"){
         @Override
         public boolean beats(PlayType other){
-            return other ==  SCISSOR;
+            return other ==  SCISSORS;
 
         }
     },
@@ -18,7 +18,7 @@ public enum PlayType {
 
         }
     },
-    SCISSOR("scissor"){
+    SCISSORS("scissors"){
         @Override
         public boolean beats(PlayType other){
             return other ==  PAPER;
@@ -32,8 +32,8 @@ public enum PlayType {
                 return ROCK;
             case "paper":
                 return PAPER;
-            case "scissor":
-                return SCISSOR;
+            case "scissors":
+                return SCISSORS;
             default:
                 return null;
         }
