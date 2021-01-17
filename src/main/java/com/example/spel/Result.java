@@ -9,7 +9,7 @@ public class Result {
         if(players[0].getMove().beats(players[1].getMove())){
             this.winner = players[0].getName();
         }
-        else if(players[1].getMove().beats(players[2].getMove())){
+        else if(players[1].getMove().beats(players[0].getMove())){
             this.winner = players[1].getName();
         }
         else {
