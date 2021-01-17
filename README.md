@@ -1,31 +1,22 @@
-# Project Name
-> Here goes your awesome project description!
+# StenSaxPase Backend
+> This is a simple backend that supports game sessions of rock-scissors-paper.
 
-## Table of contents
-* [General info](#general-info)
 
 ## Curl examples
+
+- info about game: `curl -H "Content-Type: application/json"  http://localhost:8080/games/$id`
+- get result from game. `curl -H "Content-Type: application/json"  http://localhost:8080/games/$id/result`
 - create game :  `curl -d '{"name": "daniel"}' -H "Content-Type: application/json" -X POST http://localhost:8080/games`
 - join game: `curl -d '{"name":"josefin"}' -H "Content-Type: application/json" -X POST http://localhost:8080/games/$id/join`
-- info about game: `curl -H "Content-Type: application/json"  http://localhost:8080/games/$id`
+- make move inside game: `curl -d '{"name":"josefin", "move":"ROCK"}' -H "Content-Type: application/json" -X POST http://localhost:8080/games/$id/move`
 
-## General info
-Add more general information about project. What the purpose of the project is? Motivation?
-
-## Setup
-Describe how to install / setup your local environement / add link to demo version.
+## Run
+`./gradlew bootRun` to go!
 
 ## Features
-List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
-## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
-
-## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+* Unit tests.
+* Support game of 3.
+* Support rematches
+* List available games (free to join)
