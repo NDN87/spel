@@ -1,11 +1,13 @@
-package com.example.spel;
+package com.example.spel.stensaxpase;
 
+import com.example.spel.model.GameId;
+import com.example.spel.model.Player;
+import com.example.spel.model.Result;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicLong;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")

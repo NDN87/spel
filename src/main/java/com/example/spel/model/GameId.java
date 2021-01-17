@@ -1,4 +1,4 @@
-package com.example.spel;
+package com.example.spel.model;
 
 import java.nio.charset.StandardCharsets;
 import java.util.UUID;

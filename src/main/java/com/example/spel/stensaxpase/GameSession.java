@@ -1,6 +1,8 @@
-package com.example.spel;
+package com.example.spel.stensaxpase;
 
-import org.apache.catalina.User;
+import com.example.spel.model.Player;
+import com.example.spel.model.PlayerStatus;
+import com.example.spel.model.Result;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package com.example.spel;
+package com.example.spel.model;
 
 public class UserMove {
     private String name;

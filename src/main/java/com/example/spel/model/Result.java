@@ -1,4 +1,6 @@
-package com.example.spel;
+package com.example.spel.model;
+
+import com.example.spel.model.Player;
 
 public class Result {
     private String winner;

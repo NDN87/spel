@@ -1,4 +1,7 @@
-package com.example.spel;
+package com.example.spel.model;
+
+import com.example.spel.model.PlayType;
+import com.example.spel.model.PlayerStatus;
 
 public class Status {
 

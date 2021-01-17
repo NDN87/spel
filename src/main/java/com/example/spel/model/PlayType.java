@@ -1,6 +1,4 @@
-package com.example.spel;
-
-import java.util.Locale;
+package com.example.spel.model;
 
 public enum PlayType {
 
